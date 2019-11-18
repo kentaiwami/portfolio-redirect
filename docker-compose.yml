@@ -9,7 +9,7 @@ services:
         LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
         LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
       volumes:
-        - ./portfolio-redirect.conf:/etc/nginx/conf.d
+        - ./conf:/etc/nginx/conf.d
       networks:
         - proxy-network
 
