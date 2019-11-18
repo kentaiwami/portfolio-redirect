@@ -1,0 +1,18 @@
+version: '3'
+services:
+  portfolio-redirect:
+      container_name: portfolio-redirect
+      image: nginx:1.13
+      restart: always
+      environment:
+        VIRTUAL_HOST: ${VIRTUAL_HOST}
+        LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
+        LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+      volumes:
+        - ./portfolio-redirect.conf:/etc/nginx/conf.d
+      networks:
+        - proxy-network
+
+networks:
+  proxy-network:
+    external: true
